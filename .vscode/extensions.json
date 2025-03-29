@@ -1,0 +1,12 @@
+// 프로젝트/.vscode/extensions.json
+{
+  "recommendations": [
+    // common
+    "esbenp.prettier-vscode",
+    "PKief.material-icon-theme",
+    "shd101wyy.markdown-preview-enhanced",
+    "ms-python.python",
+    "ms-python.black-formatter",
+    "codeandstuff.package-json-upgrade"
+  ]
+}
