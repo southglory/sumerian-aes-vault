@@ -4,6 +4,17 @@
 
 ![Sumerian Text Example](docs/screenshots/sumerian_text.png)
 
+## Download
+
+[![GitHub release](https://img.shields.io/github/v/release/southglory/sumerian-aes-vault?style=for-the-badge)](https://github.com/southglory/sumerian-aes-vault/releases/latest)
+
+> 🚀 [Download SumerianAESDualEncryption_v1](https://github.com/southglory/sumerian-aes-vault/releases/tag/SumerianAESDualEncryption_v1)
+
+Requirements:
+
+- Windows 10/11
+- "Segoe UI Historic" font for Sumerian characters
+
 ## Choose Your Language
 
 - [English Documentation](docs/README_EN.md)
