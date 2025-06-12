@@ -1,6 +1,6 @@
-# Sumerian-AES Vault
+# Sumerian AES Vault
 
-🏺 Sumerian-AES Vault: Where ancient meets modern cryptography. A unique password protection system that combines AES-256 encryption with Sumerian cuneiform visualization.
+🏺 Sumerian AES Vault: Where ancient meets modern cryptography. A unique password protection system that combines AES-256 encryption with Sumerian cuneiform visualization.
 
 ![Sumerian Text Example](docs/screenshots/sumerian_text.png)
 
