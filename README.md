@@ -25,6 +25,9 @@ Requirements:
 - [Features](docs/README_EN.md#key-features)
 - [Build Instructions](docs/README_EN.md#build-instructions)
 - [Security Features](docs/README_EN.md#security-features)
+- **Version 2 (Advanced):**
+  - [English: version2/README_EN.md](version2/README_EN.md)
+  - [한국어: version2/README.md](version2/README.md)
 
 ## License
 
@@ -32,4 +35,4 @@ MIT License
 
 ## Contact
 
-Want to collaborate on interesting projects? Contact us at devramyun@gmail.com
+Want to collaborate on interesting projects? Contact us at <devramyun@gmail.com>

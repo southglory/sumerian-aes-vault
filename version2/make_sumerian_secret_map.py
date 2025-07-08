@@ -1,4 +1,5 @@
 import json
+import os
 import random
 import string
 import unicodedata
@@ -56,6 +57,6 @@ mapping = dict(zip(unique_chars, sumerian_chars))
 # 예시 출력
 print(mapping)
 
-# 매핑 파일 json으로 저장
-with open("./utils/sumerian_map.json", "w", encoding="utf-8") as f:
+# 매핑 파일 json으로 현재경로 __file__ 경로에 저장
+with open(os.path.dirname(__file__) + "/sumerian_map.json", "w", encoding="utf-8") as f:
     json.dump(mapping, f, ensure_ascii=False, indent=4)

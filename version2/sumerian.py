@@ -1,3 +1,4 @@
+import sys
 from Crypto.Cipher import AES
 import base64, zlib, pickle
 import os
@@ -49,7 +50,7 @@ def decrypt_aes(encrypted_password, key):
     return decrypted_text
 
 
-with open("sumerian_cipher_map.txt", "r", encoding="utf-8") as f:
+with open(os.path.dirname(__file__) + "/sumerian_cipher_map.txt", "r", encoding="utf-8") as f:
     encoded = f.read().encode()
 
 sumerian_cipher_map = pickle.loads(zlib.decompress(base64.b64decode(encoded)))
@@ -57,7 +58,7 @@ sumerian_cipher_map = pickle.loads(zlib.decompress(base64.b64decode(encoded)))
 
 def encrypt_sumerian(text):
     """AES 암호화된 Base64를 수메르 문자로 변환 (Base64 패딩 유지)"""
-    return "".join(sumerian_cipher_map.get(char.lower(), char) if char in sumerian_cipher_map else char for char in text)
+    return "".join(sumerian_cipher_map.get(char, char) if char in sumerian_cipher_map else char for char in text)
 
 
 def decrypt_sumerian(text):
@@ -78,14 +79,31 @@ def decrypt_password(encrypted_password, key):
     return decrypt_aes(decrypted_sumerian, key)
 
 
+def test_default():
+    # 기본 테스트 데이터
+    default_password = "HelloWorld123"
+    default_key = "Qwerty1234"
+    print(f"\n[기본값 테스트] 비밀번호: {default_password}, 키: {default_key}")
+    encrypted = encrypt_password(default_password, default_key)
+    print(f"암호화 결과: {encrypted}")
+    decrypted = decrypt_password(encrypted, default_key)
+    print(f"복호화 결과: {decrypted}")
+    print("✅" if decrypted == default_password else "❌")
+
+
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="비밀번호 암호화 및 복호화 도구 (AES-256 + CBC + 수메르어)")
-    parser.add_argument("mode", choices=["encrypt", "decrypt", "test"], help="암호화 또는 복호화 모드")
-    parser.add_argument("password", help="암호화/복호화할 비밀번호")
-    parser.add_argument("key", help="마스터 키")
+    parser.add_argument("mode", nargs="?", choices=["encrypt", "decrypt", "test"], help="암호화 또는 복호화 모드")
+    parser.add_argument("password", nargs="?", help="암호화/복호화할 비밀번호")
+    parser.add_argument("key", nargs="?", help="마스터 키")
     args = parser.parse_args()
+
+    # 인자가 없으면 기본 테스트 함수 실행
+    if not any([args.mode, args.password, args.key]):
+        test_default()
+        sys.exit(0)
 
     if args.mode == "encrypt":
         encrypted = encrypt_password(args.password, args.key)
